@@ -1,0 +1,13 @@
+nano filename
+
+server {
+  server_name  python.appgrowthcompany.com;
+  location / {
+    proxy_pass http://localhost:3032/;
+  }
+  
+sudo ln -s /etc/nginx/sites-available/coins-proxy.conf /etc/nginx/sites-enabled/coins-proxy.conf
+service nginx configtest
+service nginx restart
+
+certbot -d domian name   

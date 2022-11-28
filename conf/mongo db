@@ -1,0 +1,6 @@
+
+mongo
+mongodump -d parceldelivery_mohammad -o /tmp/dbbackup/
+mongorestore --db parceldelivery_mohammad_dev /var/www/html/parceldelivery_mohammad_dev/
+
+

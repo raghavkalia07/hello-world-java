@@ -1,0 +1,2 @@
+sudo netstat -tulpn | grep LISTEN
+lsof -i: port no

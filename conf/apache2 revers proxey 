@@ -1,0 +1,31 @@
+<VirtualHost *:80>
+    ServerName apicommon.chommiebites.app
+
+    ProxyPreserveHost On
+
+    ProxyPass / http://127.0.0.1:4002/
+    ProxyPassReverse / http://127.0.0.1:4002/
+
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =apicommon.chommiebites.app
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+a2enmod proxy_http
+
+<VirtualHost *:80>
+    ServerName apicommon.chommiebites.app
+
+    ProxyPreserveHost On
+
+    ProxyPass /admin http://127.0.0.1:4001/admin
+    ProxyPassReverse /admin http://127.0.0.1:4001/admin
+
+    ProxyPass /common http://127.0.0.1:4002/common
+    ProxyPassReverse /common http://127.0.0.1:4002/common
+
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =apicommon.chommiebites.app
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+

@@ -1,0 +1,40 @@
+[
+    {
+        "AllowedHeaders": [
+            "Authorization",
+            "Content-Range",
+            "Accept",
+            "Content-Type",
+            "Origin",
+            "Range"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [
+            "Content-Range",
+            "Content-Length",
+            "ETag"
+        ],
+        "MaxAgeSeconds": 3000
+    }
+]
+
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "PublicRead",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": [
+				"s3:GetObject",
+				"s3:GetObjectVersion"
+			],
+			"Resource": "arn:aws:s3:::dxgdatinglive/*"
+		}
+	]
+}

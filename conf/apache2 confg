@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    ServerAdmin admin@urbanafrique.com
+    ServerName urbanafrique.com
+    ServerAlias www.urbanafrique.com
+    DocumentRoot /var/www/html/comingsoon_08
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =urbanafrique.com [OR]
+RewriteCond %{SERVER_NAME} =www.urbanafrique.com
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>

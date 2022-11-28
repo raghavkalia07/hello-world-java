@@ -1,0 +1,18 @@
+server {
+    if ($host = yoomi.com.au) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+       listen 80;
+       listen [::]:80;
+
+       server_name yoomi.com.au;
+    return 404; # managed by Certbot
+}
+
+
+
+for nginx 
+
+
